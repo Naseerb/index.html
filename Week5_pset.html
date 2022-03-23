@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Animation</title>
+        <style>
+            button{
+            margin-top: 50px;
+            position: absolute;
+            border-radius: 10px;
+            height: 60px;
+            width: 200px;
+            font-size: x-large;
+            }
+            button:active{
+            background-color: limegreen;
+            box-shadow: 0 5px darkgrey;
+            transform: translateY(4px);
+            }
+            div{
+                border: solid black;
+                background-color: burlywood;
+                margin-top: 100px;
+                margin-left: 300px;
+                width: 400px;
+                height: 600px;
+            }
+            h1 {
+            width: 100px;
+            height: 100px;
+            z-index:5;
+            margin-top: 100px;
+            background: red;
+            margin-left: 300px;
+            border-radius: 50%;
+            position: absolute;
+                animation-name: move;
+                animation-duration: 6s;
+                animation-fill-mode: forwards;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+            }
+            @keyframes move {
+                0% {
+                    top: 0px;
+                }
+                50% {
+                    top: 250px;
+                }
+                100% {
+                    top: 500px;
+                }
+            }
+            body{
+                background-color: aquamarine;
+            }
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function(){
+                const h1 = document.querySelector('h1');
+
+                // Stop animation initially
+                h1.style.animationPlayState  = 'paused';
+
+                // Toggle animation on click
+                document.querySelector('button').onclick = function() {
+                    if (h1.style.animationPlayState  === 'paused')
+                        h1.style.animationPlayState = 'running';
+                    else
+                        h1.style.animationPlayState  = 'paused';
+                };
+            });
+        </script>
+    </head>
+    <body>
+        <button>Click Here!</button>
+        <h1></h1>
+        <div></div>
+    </body>
+</html>
